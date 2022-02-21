@@ -43,6 +43,7 @@ Vagrant.configure("2") do |config|
 
     centos8.vm.synced_folder "salt", "/srv/salt"
     centos8.vm.network "private_network", type: "dhcp"
+    centos8.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
     centos8.vm.provision :salt do |salt|
       salt.install_type = "stable"
       salt.masterless = true
