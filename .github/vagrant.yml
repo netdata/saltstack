@@ -1,0 +1,24 @@
+---
+# CI code for testing SaltStack Netdata scripts
+name: SaltStack
+  push:
+    branches:
+      - develop
+
+jobs:
+  vagrant:
+    name: Creates Vagrant boxes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Use oxr463/setup-vagrant
+        uses: oxr463/setup-vagrant@0.0.1
+      - name: Run Ubuntu 20.04
+        run: |
+          vagrant up ubuntu2004
+      - name: Run Centos 7
+        run: |
+          vagrant up centos7
