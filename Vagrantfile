@@ -34,4 +34,20 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define "centos8" do |centos8|
+    centos8.vm.box = "bento/centos-8.5"
+    centos8.vm.hostname = 'centos8'
+    centos8.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+    end
+
+    centos8.vm.synced_folder "salt", "/srv/salt"
+    centos8.vm.network "private_network", type: "dhcp"
+    centos8.vm.provision :salt do |salt|
+      salt.install_type = "stable"
+      salt.masterless = true
+      salt.minion_config = "salt/minion"
+      salt.run_highstate = true
+    end
+  end
 end

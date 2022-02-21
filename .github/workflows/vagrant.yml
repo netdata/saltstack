@@ -15,6 +15,7 @@ jobs:
         image:
           - 'ubuntu2004'
           - 'centos7'
+          - 'centos8'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
