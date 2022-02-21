@@ -7,17 +7,31 @@ on:
       - develop
 
 jobs:
-  vagrant:
-    name: Creates Vagrant boxes
+  ubuntu2004:
+    name: Test Ubuntu 20.04
     runs-on: macos-10.15
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Run Ubuntu 20.04
+      - name: Create Ubuntu 20.04
         run: |
           vagrant up ubuntu2004
-      - name: Run Centos 7
+      - name: Cleanup
+        run: |
+          vagrant destroy ubuntu2004 -f
+  centos7:
+    name: Test Centos 7
+    runs-on: macos-10.15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Create Centos 7
         run: |
           vagrant up centos7
+      - name: Cleanup
+        run: |
+          vagrant destroy centos7 -f

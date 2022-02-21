@@ -1,3 +1,3 @@
 base:
   '*':
-    - provision2
+    - provision
