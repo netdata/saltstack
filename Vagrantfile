@@ -1,54 +1,37 @@
-Vagrant.configure("2") do |config|
+# -*- mode: ruby -*-
+# # vi: set ft=ruby :
 
-  config.vm.define "ubuntu2004" do |ubuntu2004|
-    ubuntu2004.vm.box = "ubuntu/focal64"
-    ubuntu2004.vm.hostname = 'ubuntu2004'
-    ubuntu2004.vm.provider "virtualbox" do |vb|
-      vb.memory = "1024"
-    end
+# Specify minimum Vagrant version and Vagrant API version
+Vagrant.require_version ">= 1.6.0"
+VAGRANTFILE_API_VERSION = "2"
 
-    ubuntu2004.vm.synced_folder "salt", "/srv/salt"
-    ubuntu2004.vm.network "private_network", type: "dhcp"
-    ubuntu2004.vm.provision :salt do |salt|
-      salt.install_type = "stable"
-      salt.masterless = true
-      salt.minion_config = "salt/minion"
-      salt.run_highstate = true
-    end
-  end
+require 'yaml'
 
-  config.vm.define "centos7" do |centos7|
-    centos7.vm.box = "bento/centos-7"
-    centos7.vm.hostname = 'centos7'
-    centos7.vm.provider "virtualbox" do |vb|
-      vb.memory = "1024"
-    end
+servers = YAML.load_file(File.join(File.dirname(__FILE__), 'servers.yml'))
 
-    centos7.vm.synced_folder "salt", "/srv/salt"
-    centos7.vm.network "private_network", type: "dhcp"
-    centos7.vm.provision :salt do |salt|
-      salt.install_type = "stable"
-      salt.masterless = true
-      salt.minion_config = "salt/minion"
-      salt.run_highstate = true
-    end
-  end
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  servers.each do |servers|
+    config.vm.define servers["name"] do |srv|
+      srv.vm.box = servers["box"]
+      srv.vm.hostname = servers["name"]
+      srv.vm.network "private_network", ip: servers["ip"]
+      srv.vm.provider :virtualbox do |vb|
+        vb.name = servers["name"]
+        vb.memory = servers["ram"]
+        vb.cpus = servers['cpus']
+      end
 
-  config.vm.define "centos8" do |centos8|
-    centos8.vm.box = "bento/centos-8.5"
-    centos8.vm.hostname = 'centos8'
-    centos8.vm.provider "virtualbox" do |vb|
-      vb.memory = "1024"
-    end
-
-    centos8.vm.synced_folder "salt", "/srv/salt"
-    centos8.vm.network "private_network", type: "dhcp"
-    centos8.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
-    centos8.vm.provision :salt do |salt|
-      salt.install_type = "stable"
-      salt.masterless = true
-      salt.minion_config = "salt/minion"
-      salt.run_highstate = true
+      srv.vm.synced_folder "salt", "/srv/salt"
+      srv.vm.network "private_network", type: "dhcp"
+      if servers['name'] == 'centos8'
+        srv.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
+      end
+      srv.vm.provision :salt do |salt|
+        salt.install_type = "stable"
+        salt.masterless = true
+        salt.minion_config = "salt/minion"
+        salt.run_highstate = true
+      end
     end
   end
 end
