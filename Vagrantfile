@@ -22,7 +22,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       srv.vm.synced_folder "salt", "/srv/salt"
-      srv.vm.network "private_network", type: "dhcp"
       if servers['name'] == 'centos8'
         srv.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
       end
