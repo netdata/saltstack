@@ -1,23 +1,41 @@
-{% if grains.os == 'CentOS' %}
-{% set command = 'wget --content-disposition https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm -O /tmp/netdata-repo-1-1.noarch.rpm' %}
-{% set package_path = '/tmp/netdata-repo-1-1.noarch.rpm' %}
-{% else %}
-{% set package_path = '/tmp/netdata-repo_1-1_all.deb' %}
-{% set command = 'wget --content-disposition https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb -O' ~ ' ' ~ package_path %}
-{% endif %}
+install_dependencies:
+  pkg.installed:
+    - pkgs:
+      - wget: latest
 
-download_netdata_repo:
-  cmd.run:
-    - name: command
-    - unless: rpm -q netdata-repo || dpkg -s netdata-repo
+{% if grains.os == 'CentOS' %}
+
+{% set netdata_repo_url = 'https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm' %}
+{% set package_path = '/tmp/netdata-repo-1-1.noarch.rpm' %}
 
 install_netdata_repository:
   pkg.installed:
     - sources:
-      - netdata-repo: {{ package_path }}
+      - netdata-repo: {{ netdata_repo_url }}
+    - unless: rpm -q netdata-repo
+
+{% else %}
+
+{% set netdata_repo_url = 'https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb' %}
+{% set package_path = '/tmp/netdata-repo_1-1_all.deb' %}
+
+install_netdata_repository:
+  pkg.installed:
+    - sources:
+      - netdata-repo: {{ netdata_repo_url }}
+    - unless: dpkg -S netdata-repo
+
+{% endif %}
 
 install_netdata:
   pkg.installed:
     - pkgs:
-      - netdata
+      - netdata: latest
     - refresh: True
+    - require:
+      - install_netdata_repository
+
+cleanup_netdata_tempfile:
+  file.absent:
+    - names:
+      - {{ package_path }}
