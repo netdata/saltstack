@@ -3,7 +3,7 @@ install_dependencies:
     - pkgs:
       - wget: latest
 
-{% if grains.os == 'CentOS' %}
+{% if grains.os_family != 'Debian' %}
 
 {% set netdata_repo_url = 'https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm' %}
 {% set package_path = '/tmp/netdata-repo-1-1.noarch.rpm' %}
