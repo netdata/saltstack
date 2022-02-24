@@ -28,6 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
       srv.vm.provision :salt do |salt|
         salt.install_type = "stable"
+        salt.bootstrap_options = "-P"
         salt.masterless = true
         salt.minion_config = "salt/minion"
         salt.run_highstate = true
