@@ -29,6 +29,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       srv.vm.provision :salt do |salt|
         salt.install_type = "stable"
         salt.bootstrap_options = "-P"
+        salt.salt_call_args = [ "--retcode-passthrough" ]
         salt.masterless = true
         salt.minion_config = "salt/minion"
         salt.run_highstate = true
