@@ -25,3 +25,18 @@
   ip: 192.168.56.105
   ram: 1024
   cpus: 1
+- name: debian9
+  box: generic/debian9
+  ip: 192.168.56.106
+  ram: 1024
+  cpus: 1
+- name: debian10
+  box: generic/debian10
+  ip: 192.168.56.107
+  ram: 1024
+  cpus: 1
+- name: debian11
+  box: debian/bullseye64
+  ip: 192.168.56.108
+  ram: 1024
+  cpus: 1

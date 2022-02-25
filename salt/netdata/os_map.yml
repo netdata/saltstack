@@ -2,21 +2,28 @@ Debian:
   query_cmd: dpkg -S
   nightly:
     repo_pkg_name: netdata-repo-edge
-    7:
-      repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo-edge_1-1_all.deb/download.deb
     8:
-      repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo-edge_1-1_all.deb/download.deb
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/jessie/netdata-repo-edge_1-1_all.deb/download.deb
+    9:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/stretch/netdata-repo-edge_1-1_all.deb/download.deb
+    10:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/buster/netdata-repo-edge_1-1_all.deb/download.deb
+    11:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo-edge_1-1_all.deb/download.deb
     default_version:
-      repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo-edge_1-1_all.deb/download.deb
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo-edge_1-1_all.deb/download.deb
   stable:
     repo_pkg_name: netdata-repo
-    package_path: /tmp/netdata-repo_1-1_all.deb
-    7:
-      repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb
     8:
-      repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/jessie/netdata-repo_1-1_all.deb/download.deb
+    9:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/stretch/netdata-repo_1-1_all.deb/download.deb
+    10:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/buster/netdata-repo_1-1_all.deb/download.deb
+    11:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo_1-1_all.deb/download.deb
     default_version:
-      repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb
+      repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo_1-1_all.deb/download.deb
 
 Ubuntu:
   query_cmd: dpkg -S
@@ -30,7 +37,6 @@ Ubuntu:
       repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo-edge_1-1_all.deb/download.deb
   stable:
     repo_pkg_name: netdata-repo
-    package_path: /tmp/netdata-repo_1-1_all.deb
     18:
       repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb
     20:
@@ -50,13 +56,46 @@ CentOS:
       repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-1.noarch.rpm/download.rpm
   stable:
     repo_pkg_name: netdata-repo
-    package_path: /tmp/netdata-repo-1-1.noarch.rpm
     7:
       repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
     8:
       repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
     default_version:
       repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
+
+OEL:
+  query_cmd: rpm -q
+  nightly:
+    repo_pkg_name: netdata-repo-edge
+    8:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+    default_version:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+  stable:
+    repo_pkg_name: netdata-repo
+    8:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-1-1.noarch.rpm/download.rpm
+    default_version:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-1-1.noarch.rpm/download.rpm
+
+SUSE:
+  query_cmd: rpm -q
+  nightly:
+    repo_pkg_name: netdata-repo-edge
+    15:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+    42:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+    default_version:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+  stable:
+    repo_pkg_name: netdata-repo
+    15:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-1-1.noarch.rpm/download.rpm
+    42:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-1-1.noarch.rpm/download.rpm
+    default_version:
+      repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-1-1.noarch.rpm/download.rpm
 
 Fedora:
   query_cmd: rpm -q
