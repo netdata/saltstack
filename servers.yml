@@ -1,42 +1,26 @@
 ---
-- name: ubuntu2004
-  box: ubuntu/focal64
-  ip: 192.168.56.101
-  ram: 1024
-  cpus: 1
-- name: centos7
-  box: bento/centos-7
-  ip: 192.168.56.102
-  ram: 1024
-  cpus: 1
-- name: centos8
-  box: bento/centos-8.5
-  ip: 192.168.56.103
-  ram: 1024
-  cpus: 1
-- name: fedora35
-  box: fedora/35-cloud-base
-  ip: 192.168.56.104
-  ram: 1024
-  cpus: 1
-- name: oraclelinux8
-  box: oraclelinux/8
-  box_url: https://oracle.github.io/vagrant-projects/boxes/oraclelinux/8.json
-  ip: 192.168.56.105
-  ram: 1024
-  cpus: 1
 - name: debian9
   box: generic/debian9
-  ip: 192.168.56.106
+  ip: 192.168.56.101
   ram: 1024
   cpus: 1
 - name: debian10
   box: generic/debian10
-  ip: 192.168.56.107
+  ip: 192.168.56.102
   ram: 1024
   cpus: 1
 - name: debian11
-  box: debian/bullseye64
-  ip: 192.168.56.108
+  box: generic/debian11
+  ip: 192.168.56.103
+  ram: 1024
+  cpus: 1
+- name: ubuntu1804
+  box: ubuntu/bionic64
+  ip: 192.168.56.104
+  ram: 1024
+  cpus: 1
+- name: ubuntu2004
+  box: ubuntu/focal64
+  ip: 192.168.56.105
   ram: 1024
   cpus: 1
