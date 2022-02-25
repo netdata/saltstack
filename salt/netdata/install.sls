@@ -1,30 +1,14 @@
-{% import_yaml 'netdata/os_map.yml' as os_map %}
+{% from 'netdata/macros/netdata-config.sls' import netdata_config with context %}
 
 {% set release_channel = pillar.get('release_channel', 'stable') %}
+{%- set config = netdata_config(release_channel) -%}
 
-{% set os = grains['os'] %}
-{% set os_version = grains['osrelease_info'][0] %}
+{% if config.split(',')|length > 2 %}
+{% from 'netdata/macros/install-native.sls' import install_native %}
+{{ install_native(config) }}
+{% else %}
+{% from 'netdata/macros/install-static.sls' import install_static %}
+{{ install_static(release_channel) }}
+{% endif %}
 
-{% set query_cmd = os_map[os]['query_cmd'] %}
-{% set repo_pkg_name = os_map[os][release_channel]['repo_pkg_name'] %}
-{% set default = os_map[os][release_channel]['default_version'] %}
-{% set repo_url = os_map[os][release_channel].get(os_version, default).get('repo_url', default['repo_url']) %}
 
-install_dependencies:
-  pkg.installed:
-    - pkgs:
-      - wget: latest
-
-install_netdata_repository:
-  pkg.installed:
-    - sources:
-      - {{ repo_pkg_name }}: {{ repo_url }}
-    - unless: {{ query_cmd }} {{ repo_pkg_name }}
-
-install_netdata:
-  pkg.installed:
-    - pkgs:
-      - netdata: latest
-    - refresh: True
-    - require:
-      - install_netdata_repository
