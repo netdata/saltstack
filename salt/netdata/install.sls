@@ -1,31 +1,26 @@
+{% import_yaml 'netdata/os_map.yml' as os_map %}
+
+{% set release_channel = pillar.get('release_channel', 'stable') %}
+
+{% set os = grains['os'] %}
+{% set os_version = grains['osrelease_info'][0] %}
+
+{% set query_cmd = os_map[os]['query_cmd'] %}
+{% set package_path = os_map[os][release_channel]['package_path'] %}
+{% set repo_pkg_name = os_map[os][release_channel]['repo_pkg_name'] %}
+{% set default = os_map[os][release_channel]['default_version'] %}
+{% set repo_url = os_map[os][release_channel].get(os_version, default).get('repo_url', default['repo_url']) %}
+
 install_dependencies:
   pkg.installed:
     - pkgs:
       - wget: latest
 
-{% if grains.os_family != 'Debian' %}
-
-{% set netdata_repo_url = 'https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm' %}
-{% set package_path = '/tmp/netdata-repo-1-1.noarch.rpm' %}
-
 install_netdata_repository:
   pkg.installed:
     - sources:
-      - netdata-repo: {{ netdata_repo_url }}
-    - unless: rpm -q netdata-repo
-
-{% else %}
-
-{% set netdata_repo_url = 'https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb' %}
-{% set package_path = '/tmp/netdata-repo_1-1_all.deb' %}
-
-install_netdata_repository:
-  pkg.installed:
-    - sources:
-      - netdata-repo: {{ netdata_repo_url }}
-    - unless: dpkg -S netdata-repo
-
-{% endif %}
+      - {{ repo_pkg_name }}: {{ repo_url }}
+    - unless: {{ query_cmd }} {{ repo_pkg_name }}
 
 install_netdata:
   pkg.installed:
