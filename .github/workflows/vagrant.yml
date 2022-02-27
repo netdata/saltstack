@@ -35,13 +35,17 @@ jobs:
               exit 1
             fi
           done
-
       - name: Salt Lint
         uses: roaldnefs/salt-lint-action@master
         env:
           ACTION_STATE_FIND_PATTERN: '^.*\.(sls|jinja|j2|tmpl|tst)$'
           ACTION_STATE_FIND_TYPE: 'regex'
           SALT_LINT_EXTRA_PARAMS: '-v'
+      - name: Salt Dry Run
+        run: |
+          wget https://raw.githubusercontent.com/saltstack/salt-bootstrap/develop/bootstrap-salt.sh
+          sudo bash bootstrap-salt.sh
+          sudo salt-call --local --file-root=salt state.sls netdata.install test=true
   setup:
     runs-on: ubuntu-latest
     outputs:
