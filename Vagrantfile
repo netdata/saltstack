@@ -31,6 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       srv.vm.provision :salt do |salt|
         salt.bootstrap_script = "bootstrap-salt.sh"
         salt.install_type = "stable"
+        salt.no_minion = false
         if server['master'] == true
           salt.install_master = true
         end
@@ -38,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         salt.salt_call_args = [ "--retcode-passthrough" ]
         salt.masterless = true
         salt.minion_config = "salt/minion"
-        salt.run_highstate = true
+        salt.run_highstate = false
         salt.pillar({
           "release_channel" => "stable",
           "check_install_type" => "native"

@@ -46,6 +46,9 @@ jobs:
       - name: Create ${{ matrix.image }}
         run: |
           vagrant up ${{ matrix.image }}
+      - name: Run highstate on ${{ matrix.image }}
+        run: |
+          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.highstate"
       - name: Cleanup
         if: always()
         run: |
