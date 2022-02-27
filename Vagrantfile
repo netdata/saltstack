@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       end
 
       srv.vm.synced_folder "salt", "/srv/salt"
-      if servers['name'] == 'centos8'
+      if servers['name'].match(/^centos8/)
         srv.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
       end
       srv.vm.provision :salt do |salt|
