@@ -1,11 +1,6 @@
 {% macro install_native(config) %}
 {% set config = config.split(',') %}
 
-install_dependencies:
-  pkg.installed:
-    - pkgs:
-      - wget: latest
-
 install_netdata_repository:
   pkg.installed:
     - sources:
