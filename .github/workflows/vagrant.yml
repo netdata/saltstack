@@ -24,6 +24,18 @@ jobs:
               exit 1
             fi
           done
+      - name: Yaml Lint
+        run: |
+          sudo apt install yamllint
+          find . \( -name .vagrant -o -name .git \) -prune -o -type f \( -name '*.yml' -or -name '*.yaml' \) -print | while read fname; do
+            if yamllint "$fname" &>/dev/null; then
+              echo "$fname: .. OK!"
+            else
+              echo "$fname: .. FAIL!"
+              exit 1
+            fi
+          done
+
       - name: Run salt-lint
         uses: roaldnefs/salt-lint-action@master
         env:
