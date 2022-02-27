@@ -9,10 +9,12 @@
 {% set osrelease = osrelease_array[0]|trim ~ '.' ~ osrelease_array[1]|trim %}
 {% endif %}
 
-{% set query_cmd = os_map[os]['query_cmd'] %}
-{% do config.append(query_cmd|trim) %}
-{% set repo_pkg_name = os_map[os][release_channel]['repo_pkg_name'] %}
-{% do config.append(repo_pkg_name|trim) %}
+{% if release_channel == 'nightly' %}
+{% do config.append('netdata-repo-edge') %}
+{% else %}
+{% do config.append('netdata-repo') %}
+{% endif %}
+
 {% set version_map = os_map[os][release_channel]['version_map'] %}
 {% for version_info in version_map %}
 {% if osrelease in version_info['versions'] %}

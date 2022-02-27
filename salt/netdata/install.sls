@@ -4,7 +4,7 @@
 {% set check_install_type = pillar.get('check_install_type', '') %}
 {% set config = netdata_config(release_channel) %}
 
-{% if config.split(',')|length > 2 %}
+{% if config.split(',')|length > 1 %}
 {% if check_install_type != '' and check_install_type != 'native' %}
 check_install_type:
   test.fail_without_changes:

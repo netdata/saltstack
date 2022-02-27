@@ -4,8 +4,7 @@
 install_netdata_repository:
   pkg.installed:
     - sources:
-      - {{ config[1]|trim }}: {{ config[2]|trim }}
-    - unless: {{ config[0]|trim }} {{ config[1]|trim }}
+      - {{ config[0]|trim }}: {{ config[1]|trim }}
 
 install_netdata:
   pkg.installed:
