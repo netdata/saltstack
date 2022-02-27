@@ -3,6 +3,12 @@
 {% import_yaml 'netdata/os_map.yml' as os_map %}
 {% set os = grains['os'] %}
 {% set osrelease = grains['osrelease'] %}
+
+{% set osrelease_array = osrelease.split('.') %}
+{% if osrelease_array|length > 1 %}
+{% set osrelease = osrelease_array[0]|trim ~ '.' ~ osrelease_array[1]|trim %}
+{% endif %}
+
 {% set query_cmd = os_map[os]['query_cmd'] %}
 {% do config.append(query_cmd|trim) %}
 {% set repo_pkg_name = os_map[os][release_channel]['repo_pkg_name'] %}
