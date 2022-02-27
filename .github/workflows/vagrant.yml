@@ -36,11 +36,17 @@ jobs:
             fi
           done
       - name: Salt Lint
-        uses: roaldnefs/salt-lint-action@master
-        env:
-          ACTION_STATE_FIND_PATTERN: '^.*\.(sls|jinja|j2|tmpl|tst)$'
-          ACTION_STATE_FIND_TYPE: 'regex'
-          SALT_LINT_EXTRA_PARAMS: '-v'
+        run: |
+          sudo apt install pthon-pip3 && pip install salt-lint
+          PATH="$PATH:~/.local/bin"
+          find . \( -name .vagrant -o -name .git -o -name .github \) -prune -o -type f \( -name '*.sls' -or -name '*.jinja' -or -name '*.j2' \) -print | while read fname; do
+            if salt-lint "$fname" &>/dev/null; then
+              echo "$fname: .. OK!"
+            else
+              echo "$fname: .. FAIL!"
+              exit 1
+            fi
+          done
       - name: Salt Dry Run
         run: |
           wget https://raw.githubusercontent.com/saltstack/salt-bootstrap/develop/bootstrap-salt.sh
