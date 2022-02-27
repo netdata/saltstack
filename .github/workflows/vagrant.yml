@@ -37,7 +37,7 @@ jobs:
           done
       - name: Salt Lint
         run: |
-          sudo apt install pthon-pip3 && pip install salt-lint
+          sudo apt install python3-pip && pip install salt-lint
           PATH="$PATH:~/.local/bin"
           find . \( -name .vagrant -o -name .git -o -name .github \) -prune -o -type f \( -name '*.sls' -or -name '*.jinja' -or -name '*.j2' \) -print | while read fname; do
             if salt-lint "$fname" &>/dev/null; then
@@ -96,7 +96,7 @@ jobs:
       - name: Create ${{ matrix.image }}
         uses: nick-invision/retry@v2
         with:
-          timeout_seconds: 5
+          timeout_seconds: 300
           max_attempts: 3
           command: |
             vagrant destroy ${{ matrix.image }} -f || true
