@@ -45,10 +45,13 @@ jobs:
           fetch-depth: 0
       - name: Create ${{ matrix.image }}
         run: |
-          vagrant up ${{ matrix.image }}
+          (echo "### vagrant up - 1st attempt ###" && vagrant up ${{ matrix.image }}) || \
+          (echo "### vagrant up - 2st attempt ###" && vagrant up ${{ matrix.image }}) || \
+          (echo "### vagrant up - 3st attempt ###" && vagrant up ${{ matrix.image }}) || \
+          (echo "### vagrant up - FAILED ###" && exit 1)
       - name: Run highstate on ${{ matrix.image }}
         run: |
-          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.highstate"
+          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.highstate --retcode-passthrough"
       - name: Cleanup
         if: always()
         run: |
