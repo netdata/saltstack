@@ -33,6 +33,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         salt.masterless = true
         salt.minion_config = "salt/minion"
         salt.run_highstate = true
+        salt.pillar({
+          "release_channel" => "stable",
+          "check_install_type" => "native"
+        })
       end
     end
   end
