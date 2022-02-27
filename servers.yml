@@ -4,6 +4,7 @@
   ip: 192.168.56.101
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
   master: True
 - name: debian10
@@ -11,64 +12,75 @@
   ip: 192.168.56.102
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: debian11
   box: generic/debian11
   ip: 192.168.56.103
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: ubuntu1804
   box: ubuntu/bionic64
   ip: 192.168.56.104
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: ubuntu2004
   box: ubuntu/focal64
   ip: 192.168.56.105
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: centos78
   box: bento/centos-7.8
   ip: 192.168.56.106
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: centos79
   box: bento/centos-7.9
   ip: 192.168.56.107
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: centos85
   box: bento/centos-8.5
   ip: 192.168.56.109
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: almalinux85
   box: bento/almalinux-8.5
   ip: 192.168.56.110
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: rockylinux85
   box: bento/rockylinux-8.5
   ip: 192.168.56.111
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: fedora34
   box: generic/fedora34
   ip: 192.168.56.112
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True
 - name: fedora35
   box: generic/fedora35
   ip: 192.168.56.113
   ram: 1024
   cpus: 1
+  check_install_type: native
   enable: True

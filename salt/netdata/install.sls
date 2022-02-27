@@ -8,7 +8,7 @@
 {% if check_install_type != '' and check_install_type != 'native' %}
 check_install_type:
   test.fail_without_changes:
-    - name: "ERROR - install type does not match!"
+    - name: "ERROR - install type does not match! Expected 'native' but found '{{ check_install_type }}'"
     - failhard: True
 {% endif %}
 perform_native_install:
@@ -20,7 +20,7 @@ perform_native_install:
 {% if check_install_type != '' and check_install_type != 'static' %}
 check_install_type:
   test.fail_without_changes:
-    - name: "ERROR - install type does not match!"
+    - name: "ERROR - install type does not match! Expected 'static' but found '{{ check_install_type }}'"
     - failhard: True
 {% endif %}
 perform_static_install:

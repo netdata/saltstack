@@ -28,6 +28,7 @@ jobs:
               if i['enable'] == True:
                 s = {}
                 s['image'] = i['name']
+                s['check_install_type'] = i['check_install_type']
                 runs.append(s)
           x['include'] = runs
           print(f'::set-output name=matrix::{x}')
@@ -51,7 +52,7 @@ jobs:
           (echo "### vagrant up - FAILED ###" && exit 1)
       - name: Run highstate on ${{ matrix.image }}
         run: |
-          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.highstate --retcode-passthrough"
+          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
       - name: Cleanup
         if: always()
         run: |
