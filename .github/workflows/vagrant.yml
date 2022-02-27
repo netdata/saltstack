@@ -46,8 +46,8 @@ jobs:
       - name: Create ${{ matrix.image }}
         run: |
           (echo "### vagrant up - 1st attempt ###" && vagrant up ${{ matrix.image }}) || \
-          (echo "### vagrant up - 2st attempt ###" && vagrant up ${{ matrix.image }}) || \
-          (echo "### vagrant up - 3st attempt ###" && vagrant up ${{ matrix.image }}) || \
+          (echo "### vagrant up - 2st attempt ###" && vagrant destroy ${{ matrix.image }} -f && vagrant up ${{ matrix.image }}) || \
+          (echo "### vagrant up - 3st attempt ###" && vagrant destroy ${{ matrix.image }} -f && vagrant up ${{ matrix.image }}) || \
           (echo "### vagrant up - FAILED ###" && exit 1)
       - name: Run highstate on ${{ matrix.image }}
         run: |
