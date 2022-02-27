@@ -10,20 +10,20 @@ require 'yaml'
 servers = YAML.load_file(File.join(File.dirname(__FILE__), 'servers.yml'))
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  servers.each do |servers|
-    config.vm.define servers["name"] do |srv|
-      srv.vm.box = servers["box"]
-      srv.vm.box_url = servers["box_url"]
-      srv.vm.hostname = servers["name"]
-      srv.vm.network "private_network", ip: servers["ip"]
+  servers.each do |server|
+    config.vm.define server["name"] do |srv|
+      srv.vm.box = server["box"]
+      srv.vm.box_url = server["box_url"]
+      srv.vm.hostname = server["name"]
+      srv.vm.network "private_network", ip: server["ip"]
       srv.vm.provider :virtualbox do |vb|
-        vb.name = servers["name"]
-        vb.memory = servers["ram"]
-        vb.cpus = servers['cpus']
+        vb.name = server["name"]
+        vb.memory = server["ram"]
+        vb.cpus = server['cpus']
       end
 
       # Fix for centos8 repositories
-      if servers['name'].match(/^centos8/)
+      if server['name'].match(/^centos8/)
         srv.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
       end
 
@@ -31,6 +31,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       srv.vm.provision :salt do |salt|
         salt.bootstrap_script = "bootstrap-salt.sh"
         salt.install_type = "stable"
+        if server['master'] == true
+          salt.install_master = true
+        end
         salt.bootstrap_options = "-P"
         salt.salt_call_args = [ "--retcode-passthrough" ]
         salt.masterless = true
