@@ -33,6 +33,16 @@ jobs:
           x['include'] = runs
           print(f'::set-output name=matrix::{x}')
         shell: python
+      - name: Validate ASCII
+        run: |
+         find . \( -name .vagrant -o -name .git \) -prune -o -type f -name '*' -print | while read fname; do
+           if file "$fname" | grep ASCII &>/dev/null; then
+             echo "$fname: .. OK!"
+           else
+             echo "$fname: .. FAIL!"
+             exit 1
+           fi
+         done
   Test:
     name: Test Salt
     runs-on: macos-10.15
