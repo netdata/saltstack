@@ -74,3 +74,19 @@ Rocky:
     version_map:
       - versions: [ '8.4', '8.5']
         repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
+Fedora:
+  query_cmd: rpm -q
+  nightly:
+    repo_pkg_name: 'netdata-repo-edge'
+    version_map:
+      - versions: [ '34' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/34/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+      - versions: [ '35' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/35/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+  stable:
+    repo_pkg_name: 'netdata-repo'
+    version_map:
+      - versions: [ '34' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/34/netdata-repo-1-1.noarch.rpm/download.rpm
+      - versions: [ '35' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/35/netdata-repo-1-1.noarch.rpm/download.rpm
