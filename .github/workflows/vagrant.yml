@@ -88,11 +88,13 @@ jobs:
           brew upgrade vagrant
           brew upgrade --cask virtualbox
       - name: Create ${{ matrix.image }}
-        run: |
-          (echo "### vagrant up - 1st attempt ###" && vagrant up ${{ matrix.image }}) || \
-          (echo "### vagrant up - 2st attempt ###" && vagrant destroy ${{ matrix.image }} -f && vagrant up ${{ matrix.image }}) || \
-          (echo "### vagrant up - 3st attempt ###" && vagrant destroy ${{ matrix.image }} -f && vagrant up ${{ matrix.image }}) || \
-          (echo "### vagrant up - FAILED ###" && exit 1)
+        uses: nick-invision/retry@v2
+        with:
+          timeout_seconds: 5
+          max_attempts: 3
+          command: |
+            vagrant destroy ${{ matrix.image }} -f || true
+            vagrant up ${{ matrix.image }}
       - name: Run Salt Netdata state on ${{ matrix.image }}
         run: |
           vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
