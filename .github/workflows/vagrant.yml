@@ -25,9 +25,10 @@ jobs:
             runs = []
             read_data = yaml.safe_load(fh)
             for i in read_data:
-              s = {}
-              s['image'] = i['name']
-              runs.append(s)
+              if i['enable'] == True:
+                s = {}
+                s['image'] = i['name']
+                runs.append(s)
           x['include'] = runs
           print(f'::set-output name=matrix::{x}')
         shell: python
