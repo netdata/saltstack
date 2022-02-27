@@ -24,3 +24,23 @@
   ip: 192.168.56.105
   ram: 1024
   cpus: 1
+- name: centos78
+  box: bento/centos-7.8
+  ip: 192.168.56.106
+  ram: 1024
+  cpus: 1
+- name: centos79
+  box: bento/centos-7.9
+  ip: 192.168.56.107
+  ram: 1024
+  cpus: 1
+- name: centos84
+  box: bento/centos-8.4
+  ip: 192.168.56.108
+  ram: 1024
+  cpus: 1
+- name: centos85
+  box: bento/centos-8.5
+  ip: 192.168.56.109
+  ram: 1024
+  cpus: 1
