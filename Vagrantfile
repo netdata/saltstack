@@ -15,6 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       srv.vm.box = server["box"]
       srv.vm.box_url = server["box_url"]
       srv.vm.hostname = server["name"]
+      vm.vm.boot_timeout = 300
       srv.vm.network "private_network", ip: server["ip"]
       srv.vm.provider :virtualbox do |vb|
         vb.name = server["name"]
