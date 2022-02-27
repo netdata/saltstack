@@ -39,3 +39,13 @@
   ip: 192.168.56.109
   ram: 1024
   cpus: 1
+- name: almalinux85
+  box: bento/almalinux-8.5
+  ip: 192.168.56.110
+  ram: 1024
+  cpus: 1
+- name: rockylinux85
+  box: bento/rockylinux-8.5
+  ip: 192.168.56.111
+  ram: 1024
+  cpus: 1

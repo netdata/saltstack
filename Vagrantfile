@@ -22,12 +22,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         vb.cpus = servers['cpus']
       end
 
+      # Fix for centos8 repositories
       srv.vm.synced_folder "salt", "/srv/salt"
       if servers['name'].match(/^centos8/)
         srv.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
       end
+
       srv.vm.provision :salt do |salt|
+        salt.bootstrap_script = "bootstrap-salt.sh"
         salt.install_type = "stable"
+        salt.version = "3004"
         salt.bootstrap_options = "-P"
         salt.salt_call_args = [ "--retcode-passthrough" ]
         salt.masterless = true
