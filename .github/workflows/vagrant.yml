@@ -7,6 +7,23 @@ on:
       - develop
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Validate ASCII
+        run: |
+          find . \( -name .vagrant -o -name .git \) -prune -o -type f -name '*' -print | while read fname; do
+            if file "$fname" | grep ASCII &>/dev/null; then
+              echo "$fname: .. OK!"
+            else
+              echo "$fname: .. FAIL!"
+              exit 1
+            fi
+          done
   setup:
     runs-on: ubuntu-latest
     outputs:
@@ -33,20 +50,10 @@ jobs:
           x['include'] = runs
           print(f'::set-output name=matrix::{x}')
         shell: python
-      - name: Validate ASCII
-        run: |
-         find . \( -name .vagrant -o -name .git \) -prune -o -type f -name '*' -print | while read fname; do
-           if file "$fname" | grep ASCII &>/dev/null; then
-             echo "$fname: .. OK!"
-           else
-             echo "$fname: .. FAIL!"
-             exit 1
-           fi
-         done
-  Test:
+  test:
     name: Test Salt
     runs-on: macos-10.15
-    needs: setup
+    needs: [ setup, validate ]
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix) }}
     steps:
