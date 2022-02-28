@@ -84,3 +84,10 @@
   cpus: 1
   check_install_type: native
   enable: true
+- name: oraclelinux8
+  box: generic/oracle8
+  ip: 192.168.56.114
+  ram: 1024
+  cpus: 1
+  check_install_type: native
+  enable: true
