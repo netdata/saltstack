@@ -15,11 +15,13 @@
 {% do config.append('netdata-repo') %}
 {% endif %}
 
+{% if os in os_map %}
 {% set version_map = os_map[os][release_channel]['version_map'] %}
 {% for version_info in version_map %}
 {% if osrelease in version_info['versions'] %}
 {% do config.append(version_info['repo_url']|trim) %}
 {% endif %}
 {% endfor %}
+{% endif %}
 {{ config|join(",") }}
 {% endmacro %}

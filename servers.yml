@@ -1,4 +1,5 @@
 ---
+# Native builds:
 - name: debian9
   box: generic/debian9
   ip: 192.168.56.101
@@ -31,6 +32,11 @@
 - name: ubuntu2004
   box: ubuntu/focal64
   ip: 192.168.56.105
+  ram: 1024
+  cpus: 1
+- name: ubuntu2110
+  box: ubuntu/impish64
+  ip: 192.168.56.122
   ram: 1024
   cpus: 1
   check_install_type: native
@@ -97,4 +103,55 @@
   ram: 1024
   cpus: 1
   check_install_type: native
+  enable: true
+- name: sles12
+  box: wandisco/sles15.3-64
+  ip: 192.168.56.116
+  ram: 1024
+  cpus: 1
+  check_install_type: native
+  enable: true
+
+# Static builds:
+- name: arch
+  box: generic/arch
+  ip: 192.168.56.117
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
+- name: alpine312
+  box: generic/alpine312
+  ip: 192.168.56.118
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
+- name: alpine313
+  box: generic/alpine313
+  ip: 192.168.56.119
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
+- name: alpine314
+  box: generic/alpine314
+  ip: 192.168.56.120
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
+- name: alpine315
+  box: generic/alpine315
+  ip: 192.168.56.121
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
+- name: gentoo
+  box: generic/gentoo
+  ip: 192.168.56.123
+  ram: 1024
+  cpus: 1
+  check_install_type: static
   enable: true

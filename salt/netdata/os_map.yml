@@ -22,12 +22,16 @@ Ubuntu:
         repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/bionic/netdata-repo-edge_1-1_all.deb/download.deb
       - versions: [ '20.04']
         repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo-edge_1-1_all.deb/download.deb
+      - versions: [ '21.10']
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/impish/netdata-repo-edge_1-1_all.deb/download.deb
   stable:
     version_map:
       - versions: [ '18.04']
         repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/bionic/netdata-repo_1-1_all.deb/download.deb
       - versions: [ '20.04']
         repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb
+      - versions: [ '21.10']
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/impish/netdata-repo_1-1_all.deb/download.deb
 CentOS:
   nightly:
     version_map:
