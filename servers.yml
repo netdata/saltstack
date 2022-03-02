@@ -34,6 +34,8 @@
   ip: 192.168.56.105
   ram: 1024
   cpus: 1
+  check_install_type: native
+  enable: true
 - name: ubuntu2110
   box: ubuntu/impish64
   ip: 192.168.56.122
@@ -104,15 +106,6 @@
   cpus: 1
   check_install_type: native
   enable: true
-- name: sles12
-  box: wandisco/sles15.3-64
-  ip: 192.168.56.116
-  ram: 1024
-  cpus: 1
-  check_install_type: native
-  enable: true
-
-# Static builds:
 - name: arch
   box: generic/arch
   ip: 192.168.56.117
