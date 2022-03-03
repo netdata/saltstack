@@ -1,5 +1,5 @@
 {% if grains['os'] == 'SUSE' %}
-netdata_repo: 
+netdata_repo:
   pkgrepo.absent:
     - name: netdata_repo
 
@@ -15,5 +15,3 @@ remove_netdata:
       - netdata
       - netdata-repo
       - netdata-repo-edge
-    - refresh: True
-
