@@ -100,28 +100,28 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Update vagrant and virtualbox
-        run: |
-          brew upgrade vagrant
-          brew upgrade --cask virtualbox
-      - name: Create ${{ matrix.image }}
-        uses: nick-invision/retry@v2
-        with:
-          timeout_seconds: 1200
-          max_attempts: 3
-          command: |
-            vagrant destroy ${{ matrix.image }} -f || true
-            vagrant up ${{ matrix.image }}
-      - name: Run Salt Netdata install state on ${{ matrix.image }}
-        run: |
-          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
-      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
-        run: |
-          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall --retcode-passthrough"
-      - name: Cleanup
-        if: always()
-        run: |
-          vagrant destroy ${{ matrix.image }} -f
+#      - name: Update vagrant and virtualbox
+#        run: |
+#          brew upgrade vagrant
+#          brew upgrade --cask virtualbox
+#      - name: Create ${{ matrix.image }}
+#        uses: nick-invision/retry@v2
+#        with:
+#          timeout_seconds: 1200
+#          max_attempts: 3
+#          command: |
+#            vagrant destroy ${{ matrix.image }} -f || true
+#            vagrant up ${{ matrix.image }}
+#      - name: Run Salt Netdata install state on ${{ matrix.image }}
+#        run: |
+#          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
+#      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
+#        run: |
+#          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall --retcode-passthrough"
+#      - name: Cleanup
+#        if: always()
+#        run: |
+#          vagrant destroy ${{ matrix.image }} -f
   test_native:
     name: Test Salt Native Install
     runs-on: macos-10.15
@@ -133,25 +133,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Update vagrant and virtualbox
-        run: |
-          brew upgrade vagrant
-          brew upgrade --cask virtualbox
-      - name: Create ${{ matrix.image }}
-        uses: nick-invision/retry@v2
-        with:
-          timeout_seconds: 1200
-          max_attempts: 3
-          command: |
-            vagrant destroy ${{ matrix.image }} -f || true
-            vagrant up ${{ matrix.image }}
-      - name: Run Salt Netdata state on ${{ matrix.image }}
-        run: |
-          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
-      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
-        run: |
-          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall --retcode-passthrough"
-      - name: Cleanup
-        if: always()
-        run: |
-          vagrant destroy ${{ matrix.image }} -f
+#      - name: Update vagrant and virtualbox
+#        run: |
+#          brew upgrade vagrant
+#          brew upgrade --cask virtualbox
+#      - name: Create ${{ matrix.image }}
+#        uses: nick-invision/retry@v2
+#        with:
+#          timeout_seconds: 1200
+#          max_attempts: 3
+#          command: |
+#            vagrant destroy ${{ matrix.image }} -f || true
+#            vagrant up ${{ matrix.image }}
+#      - name: Run Salt Netdata state on ${{ matrix.image }}
+#        run: |
+#          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
+#      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
+#        run: |
+#          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall --retcode-passthrough"
+#      - name: Cleanup
+#        if: always()
+#        run: |
+#          vagrant destroy ${{ matrix.image }} -f
