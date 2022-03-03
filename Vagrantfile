@@ -27,24 +27,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       if server['name'].match(/^centos8/)
         srv.vm.provision "shell", inline: "sed -i 's/releasever/releasever-stream/g' /etc/yum.repos.d/*"
       end
-
+      if server['name'].match(/^arch/)
+        srv.vm.provision "shell", inline: "pacman -Syy"
+      end
       srv.vm.synced_folder "salt", "/srv/salt"
-      srv.vm.provision :salt do |salt|
-        salt.bootstrap_script = "bootstrap-salt.sh"
-        salt.install_type = "stable"
-        salt.no_minion = false
-        if server['master'] == true
-          salt.install_master = true
+      if server['name'].match(/^clearlinux/)
+        srv.vm.provision "shell", inline: "sudo swupd bundle-add -y salt"
+      else
+        srv.vm.provision :salt do |salt|
+          salt.bootstrap_script = "bootstrap-salt.sh"
+          salt.install_type = "stable"
+          salt.no_minion = false
+          if server['master'] == true
+            salt.install_master = true
+          end
+          salt.bootstrap_options = "-P"
+          salt.masterless = true
+          salt.minion_config = "salt/minion"
+          salt.run_highstate = false
         end
-        salt.bootstrap_options = "-P"
-        salt.salt_call_args = [ "--retcode-passthrough" ]
-        salt.masterless = true
-        salt.minion_config = "salt/minion"
-        salt.run_highstate = false
-        salt.pillar({
-          "release_channel" => "stable",
-          "check_install_type" => "native"
-        })
       end
     end
   end

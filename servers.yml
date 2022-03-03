@@ -148,3 +148,10 @@
   cpus: 1
   check_install_type: static
   enable: true
+- name: clearlinux
+  box: AntonioMeireles/ClearLinux
+  ip: 192.168.56.126
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
