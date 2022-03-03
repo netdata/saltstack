@@ -112,9 +112,12 @@ jobs:
           command: |
             vagrant destroy ${{ matrix.image }} -f || true
             vagrant up ${{ matrix.image }}
-      - name: Run Salt Netdata state on ${{ matrix.image }}
+      - name: Run Salt Netdata install state on ${{ matrix.image }}
         run: |
           vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
+      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
+        run: |
+          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall --retcode-passthrough"
       - name: Cleanup
         if: always()
         run: |
@@ -145,6 +148,9 @@ jobs:
       - name: Run Salt Netdata state on ${{ matrix.image }}
         run: |
           vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
+      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
+        run: |
+          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall --retcode-passthrough"
       - name: Cleanup
         if: always()
         run: |
