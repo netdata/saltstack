@@ -13,6 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   servers.each do |server|
     config.vm.define server["name"] do |srv|
       srv.vm.box = server["box"]
+      srv.vm.box_download_insecure = true
       srv.vm.box_url = server["box_url"]
       srv.vm.hostname = server["name"]
       srv.vm.boot_timeout = 300
@@ -20,7 +21,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       srv.vm.provider :virtualbox do |vb|
         vb.name = server["name"]
         vb.memory = server["ram"]
-        vb.cpus = server['cpus']
+        vb.cpus = server["cpus"]
       end
 
       # Fix for centos8 repositories
