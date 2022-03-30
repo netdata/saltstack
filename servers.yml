@@ -14,144 +14,144 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: debian11
   box: generic/debian11
   ip: 192.168.56.103
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: ubuntu1804
   box: ubuntu/bionic64
   ip: 192.168.56.104
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: ubuntu2004
   box: ubuntu/focal64
   ip: 192.168.56.105
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: ubuntu2110
   box: ubuntu/impish64
   ip: 192.168.56.122
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: centos78
   box: bento/centos-7.8
   ip: 192.168.56.106
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: centos79
   box: bento/centos-7.9
   ip: 192.168.56.107
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: centos85
   box: bento/centos-8.5
   ip: 192.168.56.109
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: almalinux85
   box: bento/almalinux-8.5
   ip: 192.168.56.110
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: rockylinux85
   box: bento/rockylinux-8.5
   ip: 192.168.56.111
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: fedora34
   box: generic/fedora34
   ip: 192.168.56.112
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: fedora35
   box: generic/fedora35
   ip: 192.168.56.113
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: oraclelinux8
   box: generic/oracle8
   ip: 192.168.56.114
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: opensuse15
   box: generic/opensuse15
   ip: 192.168.56.115
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: arch
   box: generic/arch
   ip: 192.168.56.117
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
 - name: alpine312
   box: generic/alpine312
   ip: 192.168.56.118
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
 - name: alpine313
   box: generic/alpine313
   ip: 192.168.56.119
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
 - name: alpine314
   box: generic/alpine314
   ip: 192.168.56.120
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
 - name: alpine315
   box: generic/alpine315
   ip: 192.168.56.121
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
 - name: gentoo
   box: generic/gentoo
   ip: 192.168.56.123
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
 - name: clearlinux
   box: AntonioMeireles/ClearLinux
   ip: 192.168.56.126
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
