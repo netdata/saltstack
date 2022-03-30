@@ -110,8 +110,10 @@ jobs:
           timeout_seconds: 1200
           max_attempts: 3
           command: |
-            export HTTP_PROXY="http://$PROXY_USER:$PROXY_PASS@$PROXY_URL"
-            export HTTPS_PROXY="http://$PROXY_USER:$PROXY_PASS@$PROXY_URL"
+            export HTTP_PROXY=http://$PROXY_USER:$PROXY_PASS@$PROXY_URL
+            export HTTPS_PROXY=http://$PROXY_USER:$PROXY_PASS@$PROXY_URL
+            echo $HTTP_PROXY
+            echo $HTTPS_PROXY
             vagrant destroy ${{ matrix.image }} -f || true
             vagrant up ${{ matrix.image }}
         env:
@@ -149,8 +151,8 @@ jobs:
           timeout_seconds: 1200
           max_attempts: 3
           command: |
-            export HTTP_PROXY="http://$PROXY_USER:$PROXY_PASS@$PROXY_URL"
-            export HTTPS_PROXY="http://$PROXY_USER:$PROXY_PASS@$PROXY_URL"
+            export HTTP_PROXY=http://$PROXY_USER:$PROXY_PASS@$PROXY_URL
+            export HTTPS_PROXY=http://$PROXY_USER:$PROXY_PASS@$PROXY_URL
             vagrant destroy ${{ matrix.image }} -f || true
             vagrant up ${{ matrix.image }}
         env:
