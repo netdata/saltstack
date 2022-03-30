@@ -13,7 +13,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   servers.each do |server|
     config.vm.define server["name"] do |srv|
       srv.vm.box = server["box"]
-      srv.vm.box_download_insecure = true
       srv.vm.box_url = server["box_url"]
       srv.vm.hostname = server["name"]
       srv.vm.boot_timeout = 300
