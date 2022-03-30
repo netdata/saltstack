@@ -126,7 +126,7 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
 - name: alpine314
   box: generic/alpine314
   ip: 192.168.56.120
