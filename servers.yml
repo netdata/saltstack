@@ -7,7 +7,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
   master: true
 - name: debian10
   box: debian10
@@ -120,7 +120,7 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
 - name: opensuse15
   box: opensuse15
   box_url: https://cache.netdata.cloud/vagrant/opensuse/opensuse15/opensuse15.json
