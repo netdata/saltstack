@@ -128,7 +128,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: opensuse42
   box: opensuse42
   box_url: https://cache.netdata.cloud/vagrant/opensuse/opensuse42/opensuse42.json
@@ -136,7 +136,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: alpine313
   box: alpine313
   box_url: https://cache.netdata.cloud/vagrant/alpine/alpine313/alpine313.json
