@@ -1,5 +1,9 @@
 {% macro uninstall_type(check_install_type) %}
 
+stop_netdata_service:
+  service.dead:
+    - name: netdata
+
 {% if check_install_type != '' and check_install_type != 'native' %}
 remove_netdata_static:
   file.absent:

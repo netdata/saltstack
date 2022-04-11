@@ -88,7 +88,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: fedora35
   box: fedora35
   box_url: https://cache.netdata.cloud/vagrant/fedora/fedora35/fedora35.json
@@ -176,4 +176,4 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: true
+  enable: false
