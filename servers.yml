@@ -16,7 +16,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: debian11
   box: debian11
   box_url: https://cache.netdata.cloud/vagrant/debian/debian11/debian11.json
@@ -24,7 +24,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: ubuntu1804
   box: ubuntu1804
   box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu1804/ubuntu1804.json
@@ -32,7 +32,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: ubuntu2004
   box: ubuntu2004
   box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu2004/ubuntu2004.json
@@ -40,7 +40,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: ubuntu2110
   box: ubuntu2110
   box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu2110/ubuntu2110.json
@@ -48,7 +48,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: centos79
   box: centos79
   box_url: https://cache.netdata.cloud/vagrant/centos/centos79/centos79.json
@@ -56,7 +56,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: centos85
   box: centos85
   box_url: https://cache.netdata.cloud/vagrant/centos/centos85/centos85.json
@@ -64,7 +64,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: almalinux85
   box: almalinux85
   box_url: https://cache.netdata.cloud/vagrant/almalinux/almalinux85/almalinux85.json
@@ -72,7 +72,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: rockylinux85
   box: rockylinux85
   box_url: https://cache.netdata.cloud/vagrant/rockylinux/rockylinux85/rockylinux85.json
@@ -80,7 +80,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: fedora34
   box: fedora34
   box_url: https://cache.netdata.cloud/vagrant/fedora/fedora34/fedora34.json
@@ -88,7 +88,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: fedora35
   box: fedora35
   box_url: https://cache.netdata.cloud/vagrant/fedora/fedora35/fedora35.json
@@ -96,7 +96,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: oraclelinux7
   box: oraclelinux7
   box_url: https://cache.netdata.cloud/vagrant/oraclelinux/oraclelinux7/oraclelinux7.json
@@ -104,7 +104,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: oraclelinux8
   box: oraclelinux8
   box_url: https://cache.netdata.cloud/vagrant/oraclelinux/oraclelinux8/oraclelinux8.json
@@ -112,7 +112,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: arch
   box: arch
   box_url: https://cache.netdata.cloud/vagrant/arch/arch.json
@@ -128,7 +128,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: opensuse42
   box: opensuse42
   box_url: https://cache.netdata.cloud/vagrant/opensuse/opensuse42/opensuse42.json
@@ -136,7 +136,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: alpine313
   box: alpine313
   box_url: https://cache.netdata.cloud/vagrant/alpine/alpine313/alpine313.json
@@ -144,7 +144,7 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
 - name: alpine314
   box: alpine314
   box_url: https://cache.netdata.cloud/vagrant/alpine/alpine314/alpine314.json
@@ -152,7 +152,7 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
 - name: alpine315
   box: alpine315
   box_url: https://cache.netdata.cloud/vagrant/alpine/alpine315/alpine315.json
@@ -160,7 +160,7 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
 - name: gentoo
   box: gentoo
   box_url: https://cache.netdata.cloud/vagrant/gentoo/gentoo.json
@@ -168,7 +168,7 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
 - name: clearlinux
   box: clearlinux
   box_url: https://cache.netdata.cloud/vagrant/clearlinux/clearlinux.json
@@ -176,4 +176,4 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
