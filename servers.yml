@@ -103,7 +103,7 @@
   ip: 192.168.56.113
   ram: 1024
   cpus: 1
-  check_install_type: native
+  check_install_type: static
   enable: true
 - name: oraclelinux8
   box: oraclelinux8
