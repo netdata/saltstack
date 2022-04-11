@@ -96,7 +96,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
+  enable: false
 - name: oraclelinux7
   box: oraclelinux7
   box_url: https://cache.netdata.cloud/vagrant/oraclelinux/oraclelinux7/oraclelinux7.json
