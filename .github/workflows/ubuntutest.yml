@@ -1,0 +1,28 @@
+---
+name: ubuntutest
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  test_static:
+    name: Test Salt Static Install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install vagrant and virtualbox
+        run: |
+          apt update -y
+          apt install vagrant virtualbox -y
+      - name: Create ${{ matrix.image }}
+        uses: nick-invision/retry@v2
+        with:
+          timeout_seconds: 1200
+          max_attempts: 3
+          command: |
+            vagrant destroy clearlinux || true
+            vagrant up clearlinux
