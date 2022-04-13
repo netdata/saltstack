@@ -16,9 +16,9 @@ jobs:
           fetch-depth: 0
       - name: Install vagrant and virtualbox
         run: |
-          apt update -y
-          apt install vagrant virtualbox -y
-      - name: Create ${{ matrix.image }}
+          sudo apt update -y
+          sudo apt install vagrant virtualbox -y
+      - name: Create clearlinux
         uses: nick-invision/retry@v2
         with:
           timeout_seconds: 1200
