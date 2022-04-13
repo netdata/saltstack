@@ -91,7 +91,7 @@ jobs:
         shell: python
   test_static:
     name: Test Salt Static Install
-    runs-on: macos-11.0
+    runs-on: macos-10.15
     needs: [ setup, validate ]
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix_static) }}
@@ -102,15 +102,9 @@ jobs:
           fetch-depth: 0
       - name: Install vagrant and libvirt
         run: |
-          brew install vagrant gcc libvirt qemu
-#          brew tap arthurk/homebrew-virt-manager
-#          brew install virt-manager virt-viewer
+          brew install vagrant qemu gcc libvirt rbenv-gemset
           vagrant plugin install vagrant-libvirt
-          virt-manager -c "qemu:///session" --no-fork
-#          echo 'security_driver = "none"' >> /usr/local/etc/libvirt/qemu.conf
-#          echo "dynamic_ownership = 0" >> /usr/local/etc/libvirt/qemu.conf
-#          echo "remember_owner = 0" >> /usr/local/etc/libvirt/qemu.conf
-          brew services restart libvirt
+          brew services start libvirt
       - name: Create ${{ matrix.image }}
         uses: nick-invision/retry@v2
         with:
