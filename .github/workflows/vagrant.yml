@@ -91,7 +91,7 @@ jobs:
         shell: python
   test_static:
     name: Test Salt Static Install
-    runs-on: macos-10.15
+    runs-on: macos-11.0
     needs: [ setup, validate ]
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix_static) }}
@@ -102,8 +102,8 @@ jobs:
           fetch-depth: 0
       - name: Update vagrant and virtualbox
         run: |
-          brew upgrade vagrant
-          brew upgrade --cask virtualbox
+          brew install vagrant
+          brew install --cask virtualbox
       - name: Create ${{ matrix.image }}
         uses: nick-invision/retry@v2
         with:
@@ -124,7 +124,7 @@ jobs:
           vagrant destroy ${{ matrix.image }} -f
   test_native:
     name: Test Salt Native Install
-    runs-on: macos-10.15
+    runs-on: macos-11.0
     needs: [ setup, validate ]
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix_native) }}
