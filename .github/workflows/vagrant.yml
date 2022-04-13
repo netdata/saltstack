@@ -102,10 +102,15 @@ jobs:
           fetch-depth: 0
       - name: Install vagrant and libvirt
         run: |
-          brew install vagrant
+          brew install vagrant gcc libvirt qemu
+#          brew tap arthurk/homebrew-virt-manager
+#          brew install virt-manager virt-viewer
           vagrant plugin install vagrant-libvirt
-          brew install libvirt
-          brew services start libvirt
+          virt-manager -c "qemu:///session" --no-fork
+#          echo 'security_driver = "none"' >> /usr/local/etc/libvirt/qemu.conf
+#          echo "dynamic_ownership = 0" >> /usr/local/etc/libvirt/qemu.conf
+#          echo "remember_owner = 0" >> /usr/local/etc/libvirt/qemu.conf
+          brew services restart libvirt
       - name: Create ${{ matrix.image }}
         uses: nick-invision/retry@v2
         with:
