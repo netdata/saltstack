@@ -170,8 +170,8 @@
   check_install_type: static
   enable: false
 - name: clearlinux
-  box: clearlinux
-  box_url: https://cache.netdata.cloud/vagrant/clearlinux/clearlinux.json
+  box: "AntonioMeireles/ClearLinux"
+#  box_url: https://cache.netdata.cloud/vagrant/clearlinux/clearlinux.json
   ip: 192.168.56.122
   ram: 1024
   cpus: 1
