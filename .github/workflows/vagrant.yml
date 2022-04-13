@@ -102,16 +102,21 @@ jobs:
           fetch-depth: 0
       - name: Install vagrant and libvirt
         run: |
-          brew install vagrant qemu gcc libvirt rbenv-gemset
+          brew install vagrant qemu gcc libvirt rbenv-gemset python3
+          python3 -m pip install pipenv
+          brew tap jeffreywildman/homebrew-virt-manager
+          brew install virt-manager virt-viewer
+          virt-manager -c test:///default
           vagrant plugin install vagrant-libvirt
           brew services start libvirt
+          virt-manager -c "qemu:///session" --no-fork
       - name: Create ${{ matrix.image }}
         uses: nick-invision/retry@v2
         with:
           timeout_seconds: 1200
           max_attempts: 3
           command: |
-            vagrant up ${{ matrix.image }}
+            vagrant up ${{ matrix.image }} --provider=libvirt
 #            vagrant destroy ${{ matrix.image }} -f || true
 #            vagrant up ${{ matrix.image }}
 #      - name: Run Salt Netdata install state on ${{ matrix.image }}
