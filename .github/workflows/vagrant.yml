@@ -100,38 +100,31 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: Install vagrant and libvirt
+      - name: Update vagrant and virtualbox
         run: |
-          brew install vagrant qemu gcc libvirt rbenv-gemset python3
-          python3 -m pip install pipenv
-          brew tap jeffreywildman/homebrew-virt-manager
-          brew install virt-manager virt-viewer
-          virt-manager -c test:///default
-          vagrant plugin install vagrant-libvirt
-          brew services start libvirt
-          virt-manager -c "qemu:///session" --no-fork
+          brew upgrade vagrant
+          brew upgrade --cask virtualbox
       - name: Create ${{ matrix.image }}
         uses: nick-invision/retry@v2
         with:
           timeout_seconds: 1200
           max_attempts: 3
           command: |
-            vagrant up ${{ matrix.image }} --provider=libvirt
-#            vagrant destroy ${{ matrix.image }} -f || true
-#            vagrant up ${{ matrix.image }}
-#      - name: Run Salt Netdata install state on ${{ matrix.image }}
-#        run: |
-#          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
-#      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
-#        run: |
-#          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
-#      - name: Cleanup
-#        if: always()
-#        run: |
-#          vagrant destroy ${{ matrix.image }} -f
+            vagrant destroy ${{ matrix.image }} -f || true
+            vagrant up ${{ matrix.image }}
+      - name: Run Salt Netdata install state on ${{ matrix.image }}
+        run: |
+          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.install pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
+      - name: Run Salt Netdata uninstall state on ${{ matrix.image }}
+        run: |
+          vagrant ssh ${{ matrix.image }} -- -t "sudo salt-call state.sls netdata.uninstall pillar='{\"check_install_type\":\"${{ matrix.check_install_type }}\"}' --retcode-passthrough"
+      - name: Cleanup
+        if: always()
+        run: |
+          vagrant destroy ${{ matrix.image }} -f
   test_native:
     name: Test Salt Native Install
-    runs-on: macos-11.0
+    runs-on: macos-10.15
     needs: [ setup, validate ]
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix_native) }}
