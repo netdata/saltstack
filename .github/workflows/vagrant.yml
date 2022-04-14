@@ -107,7 +107,7 @@ jobs:
       - name: Create ${{ matrix.image }}
         uses: nick-invision/retry@v2
         with:
-          timeout_seconds: 1200
+          timeout_seconds: 2400
           max_attempts: 3
           command: |
             vagrant destroy ${{ matrix.image }} -f || true
