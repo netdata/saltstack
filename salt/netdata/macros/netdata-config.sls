@@ -3,6 +3,7 @@
 {% import_yaml 'netdata/os_map.yml' as os_map %}
 {% set os = grains['os'] %}
 {% set osrelease = grains['osrelease'] %}
+{% set osmajorrelease = grains['osmajorrelease'] %}
 
 {% set osrelease_array = osrelease.split('.') %}
 {% if osrelease_array|length > 1 %}
@@ -18,7 +19,7 @@
 {% if os in os_map %}
 {% set version_map = os_map[os][release_channel]['version_map'] %}
 {% for version_info in version_map %}
-{% if osrelease in version_info['versions'] %}
+{% if osrelease in version_info['versions'] or osmajorrelease in version_info['versions'] %}
 {% do config.append(version_info['repo_url']|trim) %}
 {% endif %}
 {% endfor %}
