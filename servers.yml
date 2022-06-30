@@ -1,8 +1,7 @@
 ---
-# Native builds:
 - name: debian9
   box: debian9
-  box_url: https://cache.netdata.cloud/vagrant/debian/debian9/debian9.json
+  box_url: https://cache.netdata.cloud/vagrant/debian/debian9/vm.json
   ip: 192.168.56.101
   ram: 1024
   cpus: 1
@@ -11,7 +10,7 @@
   master: true
 - name: debian10
   box: debian10
-  box_url: https://cache.netdata.cloud/vagrant/debian/debian10/debian10.json
+  box_url: https://cache.netdata.cloud/vagrant/debian/debian10/vm.json
   ip: 192.168.56.102
   ram: 1024
   cpus: 1
@@ -19,7 +18,7 @@
   enable: true
 - name: debian11
   box: debian11
-  box_url: https://cache.netdata.cloud/vagrant/debian/debian11/debian11.json
+  box_url: https://cache.netdata.cloud/vagrant/debian/debian11/vm.json
   ip: 192.168.56.103
   ram: 1024
   cpus: 1
@@ -27,7 +26,7 @@
   enable: true
 - name: ubuntu1804
   box: ubuntu1804
-  box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu1804/ubuntu1804.json
+  box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu1804/vm.json
   ip: 192.168.56.104
   ram: 1024
   cpus: 1
@@ -35,7 +34,7 @@
   enable: true
 - name: ubuntu2004
   box: ubuntu2004
-  box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu2004/ubuntu2004.json
+  box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu2004/vm.json
   ip: 192.168.56.105
   ram: 1024
   cpus: 1
@@ -43,136 +42,144 @@
   enable: true
 - name: ubuntu2110
   box: ubuntu2110
-  box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu2110/ubuntu2110.json
+  box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu2110/vm.json
   ip: 192.168.56.106
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: true
-- name: centos79
-  box: centos79
-  box_url: https://cache.netdata.cloud/vagrant/centos/centos79/centos79.json
+- name: ubuntu2204
+  box: ubuntu2204
+  box_url: https://cache.netdata.cloud/vagrant/ubuntu/ubuntu2204/vm.json
   ip: 192.168.56.107
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: true
-- name: centos85
-  box: centos85
-  box_url: https://cache.netdata.cloud/vagrant/centos/centos85/centos85.json
+- name: centos7
+  box: centos7
+  box_url: https://cache.netdata.cloud/vagrant/centos/centos7/vm.json
   ip: 192.168.56.108
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: true
-- name: almalinux85
-  box: almalinux85
-  box_url: https://cache.netdata.cloud/vagrant/almalinux/almalinux85/almalinux85.json
+- name: centos8
+  box: centos8
+  box_url: https://cache.netdata.cloud/vagrant/centos/centos8/vm.json
   ip: 192.168.56.109
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: true
-- name: rockylinux85
-  box: rockylinux85
-  box_url: https://cache.netdata.cloud/vagrant/rockylinux/rockylinux85/rockylinux85.json
+- name: almalinux8
+  box: almalinux8
+  box_url: https://cache.netdata.cloud/vagrant/almalinux/almalinux8/vm.json
   ip: 192.168.56.110
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: true
-- name: fedora34
-  box: fedora34
-  box_url: https://cache.netdata.cloud/vagrant/fedora/fedora34/fedora34.json
+- name: almalinux9
+  box: almalinux9
+  box_url: https://cache.netdata.cloud/vagrant/almalinux/almalinux9/vm.json
   ip: 192.168.56.111
+  ram: 1024
+  cpus: 1
+  check_install_type: native
+  enable: true
+- name: rockylinux8
+  box: rockylinux8
+  box_url: https://cache.netdata.cloud/vagrant/rockylinux/rockylinux8/vm.json
+  ip: 192.168.56.112
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: true
 - name: fedora35
   box: fedora35
-  box_url: https://cache.netdata.cloud/vagrant/fedora/fedora35/fedora35.json
-  ip: 192.168.56.112
+  box_url: https://cache.netdata.cloud/vagrant/fedora/fedora35/vm.json
+  ip: 192.168.56.113
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: false
-- name: oraclelinux7
-  box: oraclelinux7
-  box_url: https://cache.netdata.cloud/vagrant/oraclelinux/oraclelinux7/oraclelinux7.json
-  ip: 192.168.56.113
-  ram: 1024
-  cpus: 1
-  check_install_type: static
-  enable: true
-- name: oraclelinux8
-  box: oraclelinux8
-  box_url: https://cache.netdata.cloud/vagrant/oraclelinux/oraclelinux8/oraclelinux8.json
+- name: fedora35
+  box: fedora36
+  box_url: https://cache.netdata.cloud/vagrant/fedora/fedora36/vm.json
   ip: 192.168.56.114
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: true
-- name: arch
-  box: arch
-  box_url: https://cache.netdata.cloud/vagrant/arch/arch.json
+  enable: false
+- name: oraclelinux8
+  box: oraclelinux8
+  box_url: https://cache.netdata.cloud/vagrant/oraclelinux/oraclelinux8/vm.json
   ip: 192.168.56.115
-  ram: 1024
-  cpus: 1
-  check_install_type: static
-  enable: true
-- name: opensuse15
-  box: opensuse15
-  box_url: https://cache.netdata.cloud/vagrant/opensuse/opensuse15/opensuse15.json
-  ip: 192.168.56.116
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: true
-- name: opensuse42
-  box: opensuse42
-  box_url: https://cache.netdata.cloud/vagrant/opensuse/opensuse42/opensuse42.json
+- name: archlinux
+  box: archlinux
+  box_url: https://cache.netdata.cloud/vagrant/archlinux/archlinux/vm.json
+  ip: 192.168.56.116
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
+- name: opensuse153
+  box: opensuse153
+  box_url: https://cache.netdata.cloud/vagrant/opensuse/opensuse153/vm.json
   ip: 192.168.56.117
+  ram: 1024
+  cpus: 1
+  check_install_type: native
+  enable: true
+- name: opensuse154
+  box: opensuse154
+  box_url: https://cache.netdata.cloud/vagrant/opensuse/opensuse154/vm.json
+  ip: 192.168.56.118
   ram: 1024
   cpus: 1
   check_install_type: native
   enable: false
 - name: alpine313
   box: alpine313
-  box_url: https://cache.netdata.cloud/vagrant/alpine/alpine313/alpine313.json
-  ip: 192.168.56.118
+  box_url: https://cache.netdata.cloud/vagrant/alpine/alpine313/vm.json
+  ip: 192.168.56.119
   ram: 1024
   cpus: 1
   check_install_type: static
   enable: true
 - name: alpine314
   box: alpine314
-  box_url: https://cache.netdata.cloud/vagrant/alpine/alpine314/alpine314.json
-  ip: 192.168.56.119
+  box_url: https://cache.netdata.cloud/vagrant/alpine/alpine314/vm.json
+  ip: 192.168.56.120
   ram: 1024
   cpus: 1
   check_install_type: static
   enable: true
 - name: alpine315
   box: alpine315
-  box_url: https://cache.netdata.cloud/vagrant/alpine/alpine315/alpine315.json
-  ip: 192.168.56.120
-  ram: 1024
-  cpus: 1
-  check_install_type: static
-  enable: true
-- name: gentoo
-  box: gentoo
-  box_url: https://cache.netdata.cloud/vagrant/gentoo/gentoo.json
+  box_url: https://cache.netdata.cloud/vagrant/alpine/alpine315/vm.json
   ip: 192.168.56.121
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
+- name: alpine316
+  box: alpine316
+  box_url: https://cache.netdata.cloud/vagrant/alpine/alpine316/vm.json
+  ip: 192.168.56.122
+  ram: 1024
+  cpus: 1
+  check_install_type: static
+  enable: true
 - name: clearlinux
   box: clearlinux
-  box_url: https://cache.netdata.cloud/vagrant/clearlinux/clearlinux.json
-  ip: 192.168.56.122
+  box_url: https://cache.netdata.cloud/vagrant/clearlinux/clearlinux/vm.json
+  ip: 192.168.56.123
   ram: 1024
   cpus: 1
   check_install_type: static
