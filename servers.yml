@@ -102,7 +102,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: oraclelinux8
   box: oraclelinux8
   box_url: https://cache.netdata.cloud/vagrant/oraclelinux/oraclelinux8/vm.json
@@ -126,7 +126,7 @@
   ram: 1024
   cpus: 1
   check_install_type: native
-  enable: false
+  enable: true
 - name: alpine313
   box: alpine313
   box_url: https://cache.netdata.cloud/vagrant/alpine/alpine313/vm.json
@@ -166,7 +166,7 @@
   ram: 1024
   cpus: 1
   check_install_type: static
-  enable: false
+  enable: true
 - name: archlinux
   box: archlinux
   box_url: https://cache.netdata.cloud/vagrant/archlinux/archlinux/vm.json
