@@ -95,6 +95,7 @@ jobs:
     needs: [ setup, validate ]
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix_static) }}
+    if: always()
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -128,6 +129,7 @@ jobs:
     needs: [ setup, validate ]
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix_native) }}
+    if: always()
     steps:
       - name: Checkout
         uses: actions/checkout@v2
