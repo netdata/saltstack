@@ -48,11 +48,11 @@ CentOS:
 AlmaLinux:
   nightly:
     version_map:
-      - versions: [ '8.4', '8.5']
+      - versions: [ '8.4', '8.5', '8.6' ]
         repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-1.noarch.rpm/download.rpm
   stable:
     version_map:
-      - versions: [ '8.4', '8.5']
+      - versions: [ '8.4', '8.5', '8.6' ]
         repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
 Rocky:
   nightly:
