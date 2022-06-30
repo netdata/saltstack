@@ -3,9 +3,9 @@
 {% import_yaml 'netdata/os_map.yml' as os_map %}
 {% set os = grains['os'] %}
 {% set osrelease = grains['osrelease'] %}
-{% set osmajorrelease = grains['osmajorrelease'] %}
 
 {% set osrelease_array = osrelease.split('.') %}
+{% set osmajorrelease = osrelease_array[0]|trim %}
 {% if osrelease_array|length > 1 %}
 {% set osrelease = osrelease_array[0]|trim ~ '.' ~ osrelease_array[1]|trim %}
 {% endif %}

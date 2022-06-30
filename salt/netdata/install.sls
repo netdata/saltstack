@@ -2,7 +2,7 @@
 
 {% set release_channel = pillar.get('release_channel', 'stable') %}
 {% set check_install_type = pillar.get('check_install_type', '') %}
-{% set config = netdata_config(release_channel) %}
+{% set config = netdata_config(release_channel)|trim %}
 {% set netdata_version = pillar.get('netdata_version', '1.33.1') %}
 
 {% if config.split(',')|length > 1 %}
