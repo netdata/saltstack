@@ -159,14 +159,6 @@
   cpus: 1
   check_install_type: static
   enable: true
-- name: clearlinux
-  box: clearlinux
-  box_url: https://cache.netdata.cloud/vagrant/clearlinux/clearlinux/vm.json
-  ip: 192.168.56.121
-  ram: 1024
-  cpus: 1
-  check_install_type: static
-  enable: true
 - name: archlinux
   box: archlinux
   box_url: https://cache.netdata.cloud/vagrant/archlinux/archlinux/vm.json
