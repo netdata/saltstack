@@ -1,96 +1,108 @@
 Debian:
   nightly:
     version_map:
-      - versions: [ '9.13']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/stretch/netdata-repo-edge_1-1_all.deb/download.deb
       - versions: [ '10']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/buster/netdata-repo-edge_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/buster/netdata-repo-edge_1-2_all.deb/download.deb
       - versions: [ '11']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo-edge_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo-edge_1-2_all.deb/download.deb
   stable:
     version_map:
-      - versions: [ '9.13']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/stretch/netdata-repo_1-1_all.deb/download.deb
       - versions: [ '10']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/buster/netdata-repo_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/buster/netdata-repo_1-2_all.deb/download.deb
       - versions: [ '11']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/debian/bullseye/netdata-repo_1-2_all.deb/download.deb
 Ubuntu:
   nightly:
     version_map:
       - versions: [ '18.04']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/bionic/netdata-repo-edge_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/bionic/netdata-repo-edge_1-2_all.deb/download.deb
       - versions: [ '20.04']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo-edge_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo-edge_1-2_all.deb/download.deb
       - versions: [ '21.10']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/impish/netdata-repo-edge_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/impish/netdata-repo-edge_1-2_all.deb/download.deb
+      - versions: [ '22.04']
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/jammy/netdata-repo-edge_1-2_all.deb/download.deb
   stable:
     version_map:
       - versions: [ '18.04']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/bionic/netdata-repo_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/bionic/netdata-repo_1-2_all.deb/download.deb
       - versions: [ '20.04']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-2_all.deb/download.deb
       - versions: [ '21.10']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/impish/netdata-repo_1-1_all.deb/download.deb
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/impish/netdata-repo_1-2_all.deb/download.deb
+      - versions: [ '20.04']
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/jammy/netdata-repo_1-2_all.deb/download.deb
 CentOS:
   nightly:
     version_map:
-      - versions: [ '7.8', '7.9' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/7/netdata-repo-edge-1-1.noarch.rpm/download.rpm
-      - versions: [ '8.4', '8.5']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+      - versions: [ '7']
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/7/netdata-repo-edge-1-2.noarch.rpm/download.rpm
+      - versions: [ '8']
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-2.noarch.rpm/download.rpm
   stable:
     version_map:
-      - versions: [ '7.8', '7.9' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/7/netdata-repo-1-1.noarch.rpm/download.rpm
-      - versions: [ '8.4', '8.5']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
+      - versions: [ '7' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/7/netdata-repo-1-2.noarch.rpm/download.rpm
+      - versions: [ '8']
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-2.noarch.rpm/download.rpm
 AlmaLinux:
   nightly:
     version_map:
-      - versions: [ '8.4', '8.5', '8.6' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+      - versions: [ '8' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-2.noarch.rpm/download.rpm
+      - versions: [ '9' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/9/netdata-repo-edge-1-2.noarch.rpm/download.rpm
   stable:
     version_map:
-      - versions: [ '8.4', '8.5', '8.6' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
+      - versions: [ '8' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-2.noarch.rpm/download.rpm
+      - versions: [ '9' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/9/netdata-repo-1-2.noarch.rpm/download.rpm
 Rocky:
   nightly:
     version_map:
-      - versions: [ '8.4', '8.5']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+      - versions: [ '8' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-edge-1-2.noarch.rpm/download.rpm
+      - versions: [ '9' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/9/netdata-repo-edge-1-2.noarch.rpm/download.rpm
   stable:
     version_map:
-      - versions: [ '8.4', '8.5']
-        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-1.noarch.rpm/download.rpm
+      - versions: [ '8' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/8/netdata-repo-1-2.noarch.rpm/download.rpm
+      - versions: [ '9' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/el/9/netdata-repo-1-2.noarch.rpm/download.rpm
 Fedora:
   nightly:
     version_map:
-      - versions: [ '34' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/34/netdata-repo-edge-1-1.noarch.rpm/download.rpm
       - versions: [ '35' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/35/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/35/netdata-repo-edge-1-2.noarch.rpm/download.rpm
+      - versions: [ '36' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/36/netdata-repo-edge-1-2.noarch.rpm/download.rpm
   stable:
     version_map:
-      - versions: [ '34' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/34/netdata-repo-1-1.noarch.rpm/download.rpm
       - versions: [ '35' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/35/netdata-repo-1-1.noarch.rpm/download.rpm
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/35/netdata-repo-1-2.noarch.rpm/download.rpm
+      - versions: [ '36' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/fedora/36/netdata-repo-1-2.noarch.rpm/download.rpm
 OEL:
   nightly:
     version_map:
-      - versions: [ '8.5' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-1-1.noarch.rpm/download.rpm
+      - versions: [ '8' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-1-2.noarch.rpm/download.rpm
   stable:
     version_map:
-      - versions: [ '8.5' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-1-1.noarch.rpm/download.rpm
+      - versions: [ '8' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/ol/8/netdata-repo-1-2.noarch.rpm/download.rpm
 SUSE:
   nightly:
     version_map:
       - versions: [ '15.3' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-edge-1-1.noarch.rpm/download.rpm
+        repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-edge-1-2.noarch.rpm/download.rpm
+      - versions: [ '15.4' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.4/netdata-repo-edge-1-2.noarch.rpm/download.rpm
   stable:
     version_map:
       - versions: [ '15.3' ]
-        repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-1-1.noarch.rpm/download.rpm
+        repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.3/netdata-repo-1-2.noarch.rpm/download.rpm
+      - versions: [ '15.4' ]
+        repo_url: https://packagecloud.io/netdata/netdata/packages/opensuse/15.4/netdata-repo-1-2.noarch.rpm/download.rpm
