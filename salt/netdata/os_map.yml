@@ -30,7 +30,7 @@ Ubuntu:
         repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/focal/netdata-repo_1-2_all.deb/download.deb
       - versions: ['21.10']
         repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/impish/netdata-repo_1-2_all.deb/download.deb
-      - versions: ['20.04']
+      - versions: ['22.04']
         repo_url: https://packagecloud.io/netdata/netdata/packages/ubuntu/jammy/netdata-repo_1-2_all.deb/download.deb
 CentOS:
   nightly:
