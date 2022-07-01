@@ -38,7 +38,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       else
         srv.vm.provision :salt do |salt|
           salt.bootstrap_script = "bootstrap-salt.sh"
-          salt.install_type = "git"
+          if server['name'].match(/^ubuntu2204/)
+            salt.install_type = "git"
+          else
+            salt.install_type = "stable"
+          end
           salt.no_minion = false
           if server['master'] == true
             salt.install_master = true
