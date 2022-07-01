@@ -32,12 +32,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         srv.vm.provision "shell", inline: "pacman -Syy"
       end
       srv.vm.synced_folder "salt", "/srv/salt"
-      if server['name'].match(/^clearlinux/)
-        srv.vm.provision "shell", inline: "sudo swupd bundle-add -y salt"
+      if server['name'].match(/^almalinux9/)
+        srv.vm.provision "shell", inline: "dnf update -y && dnf install -y python3-pip && pip3 install salt"
+        srv.vm.provision "shell", inline: 'ln -s /usr/local/bin/salt-call /bin/salt-call'
       else
         srv.vm.provision :salt do |salt|
           salt.bootstrap_script = "bootstrap-salt.sh"
-          salt.install_type = "stable"
+          salt.install_type = "git"
           salt.no_minion = false
           if server['master'] == true
             salt.install_master = true
